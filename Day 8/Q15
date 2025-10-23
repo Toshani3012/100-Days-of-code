@@ -16,4 +16,5 @@ int main() {
     else
         printf("Special character\n");
 
-    return 0
+    return 0;
+}
