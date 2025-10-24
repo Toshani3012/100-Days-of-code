@@ -1,0 +1,28 @@
+// Q41 (Loops without Arrays/Strings)
+// Write a program to swap the first and last digit of a number.
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int num, first, last, digits = 0, pow10;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    last = num % 10;
+
+    int temp = num;
+    while (temp >= 10) {
+        temp /= 10;
+        digits++;
+    }
+    first = temp;
+    pow10 = pow(10, digits);
+
+    int middle = num % pow10;
+    middle = middle / 10;
+
+    int swapped = last * pow10 + middle * 10 + first;
+    printf("Swapped number: %d\n", swapped);
+    return 0;
+}
