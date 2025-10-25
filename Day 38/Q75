@@ -1,0 +1,38 @@
+// Q75: Add two matrices and display the result
+
+#include <stdio.h>
+
+int main() {
+    int rows, cols;
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &rows, &cols);
+
+    int A[rows][cols], B[rows][cols], Sum[rows][cols];
+
+    // Input Matrix A
+    printf("Enter elements of Matrix A:\n");
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            scanf("%d", &A[i][j]);
+
+    // Input Matrix B
+    printf("Enter elements of Matrix B:\n");
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            scanf("%d", &B[i][j]);
+
+    // Add matrices
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            Sum[i][j] = A[i][j] + B[i][j];
+
+    // Display result
+    printf("Sum of matrices:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++)
+            printf("%d ", Sum[i][j]);
+        printf("\n");
+    }
+
+    return 0;
+}
