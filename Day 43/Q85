@@ -1,0 +1,27 @@
+// Q85: Reverse a string
+
+#include <stdio.h>
+
+int main() {
+    char str[100], temp;
+    int i = 0, j;
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    // Find actual length (excluding newline)
+    while (str[i] != '\0') i++;
+    if (str[i - 1] == '\n') i--;
+    j = i - 1;
+
+    // Reverse using two-pointer technique
+    for (int start = 0, end = j; start < end; start++, end--) {
+        temp = str[start];
+        str[start] = str[end];
+        str[end] = temp;
+    }
+
+    printf("Reversed string: %s\n", str);
+    return 0;
+}
+
