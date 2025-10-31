@@ -1,0 +1,32 @@
+// Q104 (Logic Enhancers)
+// Program to find pivot integer x such that sum(1 to x) == sum(x to n)
+
+#include <stdio.h>
+#include <math.h>
+
+int findPivotInteger(int n) {
+    // Total sum from 1 to n
+    int totalSum = n * (n + 1) / 2;
+
+    // Try to find x such that sum(1 to x) == sum(x to n)
+    // i.e., x*x == totalSum
+    int x = (int)sqrt(totalSum);
+    if (x * x == totalSum)
+        return x;
+    else
+        return -1;
+}
+
+int main() {
+    int n;
+
+    // Input positive integer n
+    printf("Enter a positive integer n: ");
+    scanf("%d", &n);
+
+    // Find and print pivot integer
+    int pivot = findPivotInteger(n);
+    printf("%d\n", pivot);
+
+    return 0;
+}
