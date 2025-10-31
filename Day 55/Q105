@@ -1,0 +1,35 @@
+// Q105 (Logic Enhancers)
+// Program to find the majority element (appears strictly more than n/2 times)
+
+#include <stdio.h>
+
+int findMajorityElement(int nums[], int size) {
+    int freq[100001] = {0}; // assuming input values are <= 100000
+
+    for (int i = 0; i < size; i++) {
+        freq[nums[i]]++;
+        if (freq[nums[i]] > size / 2) {
+            return nums[i]; // early exit on majority detection
+        }
+    }
+
+    return -1; // no majority element found
+}
+
+int main() {
+    int nums[100], size;
+
+    // Input array size and elements
+    printf("Enter size of array: ");
+    scanf("%d", &size);
+    printf("Enter %d elements:\n", size);
+    for (int i = 0; i < size; i++) {
+        scanf("%d", &nums[i]);
+    }
+
+    // Find and print majority element
+    int majority = findMajorityElement(nums, size);
+    printf("%d\n", majority);
+
+    return 0;
+}
