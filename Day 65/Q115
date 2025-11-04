@@ -1,0 +1,50 @@
+// Q115 (Logic Enhancers)
+// Program to check if two strings are valid anagrams (lowercase only)
+
+#include <stdio.h>
+#include <string.h>
+
+int isAnagram(char s[], char t[]) {
+    int freq[26] = {0}; // for 'a' to 'z'
+
+    // If lengths differ, not an anagram
+    if (strlen(s) != strlen(t)) {
+        return 0;
+    }
+
+    // Count frequency for s
+    for (int i = 0; s[i] != '\0'; i++) {
+        freq[s[i] - 'a']++;
+    }
+
+    // Subtract frequency for t
+    for (int i = 0; t[i] != '\0'; i++) {
+        freq[t[i] - 'a']--;
+    }
+
+    // Check if all frequencies are zero
+    for (int i = 0; i < 26; i++) {
+        if (freq[i] != 0)
+            return 0;
+    }
+
+    return 1;
+}
+
+int main() {
+    char s[100], t[100];
+
+    // Input strings
+    printf("Enter first string: ");
+    scanf("%s", s);
+    printf("Enter second string: ");
+    scanf("%s", t);
+
+    // Check and print result
+    if (isAnagram(s, t))
+        printf("Anagram\n");
+    else
+        printf("Not Anagram\n");
+
+    return 0;
+}
