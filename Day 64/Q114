@@ -1,0 +1,46 @@
+// Q114 (Logic Enhancers)
+// Program to find the length of the longest substring without repeating characters
+
+#include <stdio.h>
+#include <string.h>
+
+int isUnique(char s[], int start, int end) {
+    int freq[256] = {0}; // ASCII character frequency
+    for (int i = start; i <= end; i++) {
+        if (freq[(unsigned char)s[i]] > 0)
+            return 0;
+        freq[(unsigned char)s[i]]++;
+    }
+    return 1;
+}
+
+int longestUniqueSubstring(char s[]) {
+    int maxLen = 0;
+    int n = strlen(s);
+
+    for (int i = 0; i < n; i++) {
+        for (int j = i; j < n; j++) {
+            if (isUnique(s, i, j)) {
+                int len = j - i + 1;
+                if (len > maxLen)
+                    maxLen = len;
+            }
+        }
+    }
+
+    return maxLen;
+}
+
+int main() {
+    char s[100];
+
+    // Input string
+    printf("Enter a string: ");
+    scanf("%s", s);
+
+    // Compute and print result
+    int result = longestUniqueSubstring(s);
+    printf("%d\n", result);
+
+    return 0;
+}
