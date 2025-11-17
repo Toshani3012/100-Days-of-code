@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fptr;
+    char filename[100];
+    char ch;
+
+    
+    printf("Enter filename: ");
+    scanf("%s", filename);
+
+    
+    fptr = fopen(filename, "r");
+    if (fptr == NULL) {
+        printf("Error: File %s does not exist or cannot be opened.\n", filename);
+        return 1;
+    }
+
+    
+    printf("\n--- File Content ---\n");
+    while ((ch = fgetc(fptr)) != EOF) {
+        putchar(ch);
+    }
+
+   
+    fclose(fptr);
+
+    return 0;
+}
