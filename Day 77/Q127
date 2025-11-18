@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <ctype.h>  
+
+int main() {
+    FILE *fptr_in, *fptr_out;
+    char ch;
+
+    fptr_in = fopen("input.txt", "r");
+    if (fptr_in == NULL) {
+        printf("Error: Could not open input.txt\n");
+        return 1;
+    }
+
+    fptr_out = fopen("output.txt", "w");
+    if (fptr_out == NULL) {
+        printf("Error: Could not open output.txt\n");
+        fclose(fptr_in);
+        return 1;
+    }
+
+    while ((ch = fgetc(fptr_in)) != EOF) {
+        fputc(toupper(ch), fptr_out);
+    }
+
+    printf("Conversion complete. Output written to output.txt\n");
+
+    
+    fclose(fptr_in);
+    fclose(fptr_out);
+
+    return 0;
+}
