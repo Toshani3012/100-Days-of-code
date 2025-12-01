@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+enum Colors { RED, GREEN, BLUE };
+
+int main() {
+    enum Colors c;
+    for (c = RED; c <= BLUE; c++) {
+        printf("Enum value: %d\n", c);
+    }
+    return 0;
+}
