@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+enum Role { ADMIN, USER, GUEST };
+
+int main() {
+    enum Role r = ADMIN;
+
+    switch (r) {
+        case ADMIN: printf("Welcome, Admin! Full access granted.\n"); break;
+        case USER:  printf("Hello User! Limited access.\n"); break;
+        case GUEST: printf("Hi Guest! Please sign up.\n"); break;
+    }
+    return 0;
+}
