@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+struct Student {
+    char name[20];
+    int roll_no;
+    float marks;
+};
+
+struct Student getTopStudent(struct Student s[], int n) {
+    int top = 0;
+    for (int i = 1; i < n; i++) {
+        if (s[i].marks > s[top].marks) top = i;
+    }
+    return s[top];
+}
+
+int main() {
+    struct Student s[3] = {
+        {"Ravi", 101, 78.5},
+        {"Neha", 102, 92.0},
+        {"Arjun", 103, 85.0}
+    };
+
+    struct Student top = getTopStudent(s, 3);
+    printf("Top Student: %s | Roll: %d | Marks: %.2f\n", top.name, top.roll_no, top.marks);
+    return 0;
+}
