@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+struct Date {
+    int day, month, year;
+};
+
+struct Employee {
+    char name[30];
+    int id;
+    struct Date joining;
+};
+
+int main() {
+    struct Employee e = {"Ramesh", 101, {1, 12, 2025}};
+    printf("Employee: %s | ID: %d | Joining Date: %02d-%02d-%d\n",
+           e.name, e.id, e.joining.day, e.joining.month, e.joining.year);
+    return 0;
+}
