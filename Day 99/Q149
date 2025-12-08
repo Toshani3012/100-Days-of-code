@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Employee {
+    char name[30];
+    int id;
+    float salary;
+};
+
+int main() {
+    struct Employee *e;
+    e = (struct Employee*) malloc(sizeof(struct Employee));
+
+    if (e == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+
+    printf("Enter name, id, salary: ");
+    scanf("%s %d %f", e->name, &e->id, &e->salary);
+
+    printf("Employee: %s | ID: %d | Salary: %.2f\n", e->name, e->id, e->salary);
+
+    free(e);
+    return 0;
+}
