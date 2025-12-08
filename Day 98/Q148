@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Student {
+    char name[20];
+    int roll;
+    float marks;
+};
+
+int main() {
+    struct Student s1 = {"Amit", 101, 85.5};
+    struct Student s2 = {"Amit", 101, 85.5};
+
+    if (strcmp(s1.name, s2.name) == 0 && s1.roll == s2.roll && s1.marks == s2.marks) {
+        printf("Structs are identical\n");
+    } else {
+        printf("Structs are different\n");
+    }
+    return 0;
+}
